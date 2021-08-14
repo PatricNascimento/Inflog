@@ -15,6 +15,7 @@ namespace Infolog.Web.Controllers
 
         public HomeController(ILogger<HomeController> logger)
         {
+            //Teste
             _logger = logger;
         }
 
