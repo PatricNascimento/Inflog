@@ -8,17 +8,22 @@ namespace Infolog.DataAccess
     {
         public InfologDbContext(DbContextOptions<InfologDbContext> options) : base(options)
         {
-            if (Database.ProviderName != "Microsoft.EntityFrameworkCore.InMemory")
-                Database.Migrate();
+            //if (Database.ProviderName != "Microsoft.EntityFrameworkCore.InMemory")
+                //Database.Migrate();
         }
 
 
         public DbSet<Cliente> Clientes { get; set; }
+        public DbSet<Usuario> Usuarios { get; set; }
 
         protected override void OnModelCreating(ModelBuilder modelBuilder)
         {
 
             modelBuilder.Entity<Cliente>(entity =>
+            {
+                entity.HasKey(e => e.Id);
+            });
+            modelBuilder.Entity<Usuario>(entity =>
             {
                 entity.HasKey(e => e.Id);
             });
