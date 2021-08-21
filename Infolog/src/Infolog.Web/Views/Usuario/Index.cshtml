@@ -1,0 +1,64 @@
+﻿@model Infolog.Web.Models.ListUsuarioViewModel
+<!-- Content Header (Page header) -->
+<section class="content-header">
+    <div class="container-fluid">
+        <div class="row mb-2">
+            <div class="col-sm-6">
+                <h1>Cadastro de Usuários</h1>
+            </div>
+        </div>
+    </div><!-- /.container-fluid -->
+</section>
+
+<!-- Main content -->
+<section class="content">
+    <!-- Default box -->
+    <div class="card">
+        <div class="card-header">
+            <h3 class="card-title">Listagem de usuários</h3>
+        </div>
+        <div class="card-body">
+            <table id="table-usuarios" class="table table-bordered table-striped">
+                <thead>
+                    <tr>
+                        <th>Nome</th>
+                        <th>Sobrenome</th>
+                        <th>Email</th>
+                        <th>Ações</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    @foreach (var usuario in Model.Usuarios)
+                    {
+                        <tr>
+                            <td>@usuario.Nome</td>
+                            <td>@usuario.Sobrenome</td>
+                            <td>@usuario.Email</td>
+                            <td><a href="@Url.Action("Editar", new { id = usuario.Id })">Editar</a> <a href="#">Excluír</a></td>
+                        </tr>
+                    }
+                    @if (Model.Usuarios.Count == 0)
+                    {
+                        <tr>
+                            <td colspan="99">Nenhum usuário cadastrado</td>
+                        </tr>
+                    }
+                </tbody>
+            </table>
+        </div>
+
+        <div class="card-footer">
+            <a href="@Url.Action("Incluir")" class="btn btn-primary">Incluír Usuário</a>
+        </div>
+        <!-- /.card-footer-->
+    </div>
+    <!-- /.card-body -->
+</section>
+<!-- /.content -->
+<script>
+    $(function () {
+        $("#table-usuarios").DataTable({
+            "responsive": true, "lengthChange": false, "autoWidth": true
+        });
+    });
+</script>
