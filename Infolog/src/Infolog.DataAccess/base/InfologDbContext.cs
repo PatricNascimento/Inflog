@@ -15,7 +15,8 @@ namespace Infolog.DataAccess
 
         public DbSet<Cliente> Clientes { get; set; }
         public DbSet<Usuario> Usuarios { get; set; }
-
+        public DbSet<Entregador> Entregadores { get; set; }
+        public DbSet<Endereco> Enderecos { get; set; }
         protected override void OnModelCreating(ModelBuilder modelBuilder)
         {
 
@@ -27,7 +28,14 @@ namespace Infolog.DataAccess
             {
                 entity.HasKey(e => e.Id);
             });
-
+            modelBuilder.Entity<Entregador>(entity =>
+            {
+                entity.HasKey(e => e.Id);
+            });
+            modelBuilder.Entity<Endereco>(entity =>
+            {
+                entity.HasKey(e => e.Id);
+            });
             base.OnModelCreating(modelBuilder);
             modelBuilder.ApplyConfigurationsFromAssembly(typeof(InfologDbContext).Assembly);
         }
