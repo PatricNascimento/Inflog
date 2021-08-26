@@ -1,0 +1,74 @@
+﻿@model Infolog.Web.Models.EntregadorViewModel
+<!-- Content Header (Page header) -->
+<section class="content-header">
+    <div class="container-fluid">
+        <div class="row mb-2">
+            <div class="col-sm-6">
+                <h1>Cadastro de Entregador</h1>
+            </div>
+        </div>
+    </div><!-- /.container-fluid -->
+</section>
+
+<!-- Main content -->
+<section class="content">
+    <!-- Default box -->
+    <div class="card">
+        <div class="card-header">
+            <h3 class="card-title">@(Model.Id == 0 ? "Inclusão" : "Edição")   de Entregador</h3>
+        </div>
+        <div class="card-body">
+            <form id="frm-usuario" action="@Url.Action("Salvar")" method="post">
+                <input type="hidden" name="Id" value="@Model.Id" />
+                <div class="form-row">
+                    <div class="form-group col-md-7">
+                        <label for="nome">Nome</label>
+                        <input type="text" class="form-control" id="nome" name="Nome" value="@Model.Nome" required />
+                    </div>
+                    <div class="form-group col-md-5">
+                        <label for="sobrenome">Sobrenome</label>
+                        <input type="text" class="form-control" id="sobrenome" name="Sobrenome" value="@Model.Sobrenome" required />
+                    </div>
+                </div>
+
+                <div class="form-row">
+                    <div class="form-group col-md-7">
+                        <label for="telefone">Telefone</label>
+                        <input type="text" class="form-control" id="Telefone" name="Telefone" value="@Model.Telefone" required />
+                    </div>
+                </div>
+                <div class="form-row">
+                    <div class="form-group col-md-7">
+                        <label for="celular">Celular</label>
+                        <input type="text" class="form-control" id="Celular" name="Celular" value="@Model.Celular" required />
+                    </div>
+                </div>
+                <div class="form-row">
+                    <div class="form-group col-md-7">
+                        <label for="endereco">Endereco</label>
+                        <input type="text" class="form-control" id="Endereco" name="Endereco" value="@Model.Endereco" required />
+                    </div>
+                </div>
+                <div class="form-row">
+                    <div class="form-group col-md-7">
+                        <label for="moto">Moto</label>
+                        <input type="text" class="form-control" id="Moto" name="Moto" value="@Model.Moto" required />
+                    </div>
+                </div>
+                <div class="form-row">
+                    <div class="form-group col-md-7">
+                        <label for="placa">Placa</label>
+                        <input type="text" class="form-control" id="Placa" name="Placa" value="@Model.Placa" required />
+                    </div>
+                </div>
+            </form>
+        </div>
+        <div class="card-footer">
+            <a href="#" onclick="$('#frm-entregador').submit();" class="btn btn-primary">Salvar</a>
+            <a href='@Url.Action("Index")' class="btn btn-secondary">Voltar</a>
+        </div>
+        <!-- /.card-footer-->
+    </div>
+    <!-- /.card-body -->
+</section>
+<!-- /.content -->

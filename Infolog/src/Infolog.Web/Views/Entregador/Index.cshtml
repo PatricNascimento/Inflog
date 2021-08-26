@@ -1,0 +1,71 @@
+﻿@model Infolog.Web.Models.ListEntregadorViewModel
+<!-- Content Header (Page header) -->
+<section class="content-header">
+    <div class="container-fluid">
+        <div class="row mb-2">
+            <div class="col-sm-6">
+                <h1>Cadastro de Entregador</h1>
+            </div>
+        </div>
+    </div><!-- /.container-fluid -->
+</section>
+
+<!-- Main content -->
+<section class="content">
+    <!-- Default box -->
+    <div class="card">
+        <div class="card-header">
+            <h3 class="card-title">Listagem de entregador</h3>
+        </div>
+        <div class="card-body">
+            <table id="table-entregadores" class="table table-bordered table-striped">
+                <thead>
+                    <tr>
+                        <th>Nome</th>
+                        <th>Sobrenome</th>
+                        <th>Telefone</th>
+                        <th>Celular</th>
+                        <th>Endereco</th>
+                        <th>Moto</th>
+                        <th>Placa</th>                        
+                    </tr>
+                </thead>
+                <tbody>
+                    @foreach (var entregador in Model.Entregadores)
+                    {
+                    <tr>
+                        <td>@entregador.Nome</td>
+                        <td>@entregador.Sobrenome</td>
+                        <td>@entregador.Telefone</td>
+                        <td>@entregador.Celular</td>
+                        <td>@entregador.Endereco</td>
+                        <td>@entregador.Moto</td>
+                        <td>@entregador.Placa</td>
+                        <td><a href="@Url.Action("Editar", new { id = entregador.Id })">Editar</a> <a href="#">Excluír</a></td>
+                    </tr>
+                    }
+                    @if (Model.Entregadores.Count == 0)
+                    {
+                        <tr>
+                            <td colspan="99">Nenhum entregador cadastrado</td>
+                        </tr>
+                    }
+                </tbody>
+            </table>
+        </div>
+
+        <div class="card-footer">
+            <a href="@Url.Action("Incluir")" class="btn btn-primary">Incluír Entregador</a>
+        </div>
+        <!-- /.card-footer-->
+    </div>
+    <!-- /.card-body -->
+</section>
+<!-- /.content -->
+<script>
+    $(function () {
+        $("#table-usuarios").DataTable({
+            "responsive": true, "lengthChange": false, "autoWidth": true
+        });
+    });
+</script>
