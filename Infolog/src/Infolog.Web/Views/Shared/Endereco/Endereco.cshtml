@@ -1,0 +1,21 @@
+﻿@model Infolog.Web.Models.EnderecoViewModel
+
+<input type="hidden" name="Endereco.Id" />
+<div class="form-row">
+    <div class="form-group col-md-4">
+        <label for="complemento">Complemento</label>
+        <input type="text" class="form-control" id="complemento" name="Endereco.Complemento" value="" required />
+    </div>
+    <div class="form-group col-md-2">
+        <label for="cep">Cep</label>
+        <input type="text" class="form-control" id="cep" name="Endereco.Cep" value="" required />
+    </div>
+    <div class="form-group col-md-5">
+        <label for="cidade">Cidade</label>
+        <input type="text" class="form-control" id="cidade" name="Endereco.Cidade" value="" required />
+    </div>
+    <div class="form-group col-md-1">
+        <label for="uf">UF</label>
+        <input type="text" class="form-control" id="uf" name="Endereco.Uf" value="" required />
+    </div>
+</div>

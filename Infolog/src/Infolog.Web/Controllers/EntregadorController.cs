@@ -49,7 +49,7 @@ namespace Infolog.Web.Controllers
             model.Telefone = entregador.Telefone;
             model.Celular = entregador.Celular;
             model.Endereco = entregador.Endereco;
-            model.Moto = entregador.Moto;
+            model.Veiculo = entregador.Veiculo;
             model.Placa = entregador.Placa;
 
             return View(model);
@@ -61,7 +61,7 @@ namespace Infolog.Web.Controllers
         {
             if (model.Id == 0)
             {
-                var entregador = new Entregador(model.Nome, model.Sobrenome, model.Telefone, model.Celular, model.Endereco, model.Moto, model.Placa);
+                var entregador = new Entregador(model.Nome, model.Sobrenome, model.Telefone, model.Celular, model.Endereco, model.Veiculo, model.Placa);
                 await entregadorRepository.Create(entregador);
             }
             else
@@ -73,7 +73,7 @@ namespace Infolog.Web.Controllers
                 entregador.Telefone = model.Telefone;
                 entregador.Celular = model.Celular;
                 entregador.Endereco = model.Endereco;
-                entregador.Moto = model.Moto;
+                entregador.Veiculo = model.Veiculo;
                 entregador.Placa = model.Placa;
 
                 

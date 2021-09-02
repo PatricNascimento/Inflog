@@ -1,0 +1,88 @@
+﻿@model Infolog.Web.Models.ClienteViewModel
+<!-- Content Header (Page header) -->
+<section class="content-header">
+    <div class="container-fluid">
+        <div class="row mb-2">
+            <div class="col-sm-6">
+                <h1>Cadastro de Clientes</h1>
+            </div>
+        </div>
+    </div><!-- /.container-fluid -->
+</section>
+
+<!-- Main content -->
+<section class="content">
+    <!-- Default box -->
+    <div class="card">
+        <div class="card-header">
+            <h3 class="card-title">@(Model.Id == 0 ? "Inclusão" : "Edição")   de Clientes</h3>
+        </div>
+        <div class="card-body">
+            <form id="frm-usuario" action="@Url.Action("Salvar")" method="post">
+                <input type="hidden" name="Id" value="@Model.Id" />
+                
+                <div class="form-row">
+                    <div class="form-group col-md-7">
+                        <label for="nomeFantasia">Nome Fantasia</label>
+                        <input type="text" class="form-control" id="nomeFantasia" name="NomeFantasia" value="@Model.NomeFantasia" required />
+                    </div>
+                    <div class="form-group col-md-5">
+                        <label for="razaoSocial">Razao Social</label>
+                        <input type="text" class="form-control" id="razaoSocial" name="RazaoSocial" value="@Model.RazaoSocial" required />
+                    </div>
+                </div>
+
+                <div class="form-row">
+                    <div class="form-group col-md-7">
+                        <label for="responsavel">Responsável</label>
+                        <input type="text" class="form-control" id="responsavel" name="Responsavel" value="" required />
+                    </div>
+                    <div class="form-group col-md-5">
+                        <label for="cnpj">CNPJ</label>
+                        <input type="text" class="form-control" id="cnpj" name="Cnpj" value="@Model.Cnpj" required />
+                    </div>
+                </div>
+
+                <div class="form-row">
+                    <div class="form-group col-md-3">
+                        <label for="telefone">Telefone</label>
+                        <input type="text" class="form-control" id="telefone" name="Telefone" value="@Model.Telefone" required />
+                    </div>
+                    <div class="form-group col-md-3">
+                        <label for="celular">Celular</label>
+                        <input type="text" class="form-control" id="celular" name="Celular" value="@Model.Celular" required />
+                    </div>
+                    <div class="form-group col-md-6">
+                        <label for="email">Email</label>
+                        <input type="text" class="form-control" id="email" name="Email" value="" required />                    
+                    </div>
+                </div>
+                
+                <div class="form-row">
+                    <div class="form-group col-md-6">
+                        <label for="logradouro">Logradouro</label>
+                        <input type="text" class="form-control" id="logradouro" name="Logradouro" value="" required />
+                    </div>
+                    <div class="form-group col-md-2">
+                        <label for="numero">Numero</label>
+                        <input type="text" class="form-control" id="numero" name="Numero" value="" required />
+                    </div>
+                    <div class="form-group col-md-4">
+                        <label for="bairro">Bairro</label>
+                        <input type="text" class="form-control" id="bairro" name="Bairro" value="" required />
+                    </div>
+                </div>
+                
+                @Html.Partial("~/Views/Shared/Endereco/Endereco.cshtml", Model.EnderecoPrincipal)
+
+            </form>
+        </div>
+        <div class="card-footer">
+            <a href="#" onclick="$('#frm-cliente').submit();" class="btn btn-primary">Salvar</a>
+            <a href='@Url.Action("Index")' class="btn btn-secondary">Voltar</a>
+        </div>
+        <!-- /.card-footer-->
+    </div>
+    <!-- /.card-body -->
+</section>
+<!-- /.content -->

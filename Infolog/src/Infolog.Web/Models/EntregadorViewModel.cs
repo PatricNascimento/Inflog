@@ -11,7 +11,7 @@ namespace Infolog.Web.Models
         public string Telefone { get; set; }
         public string Celular { get; set; }
         public string Endereco { get; set; }
-        public string Moto { get; set; }
+        public string Veiculo { get; set; }
         public string Placa { get; set; }
         
     }

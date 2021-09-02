@@ -3,14 +3,16 @@ using System;
 using Infolog.DataAccess;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
+using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 
 namespace Infolog.DataAccess.Migrations
 {
     [DbContext(typeof(InfologDbContext))]
-    partial class InfologDbContextModelSnapshot : ModelSnapshot
+    [Migration("20210826021818_htmlEntregadores")]
+    partial class htmlEntregadores
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder
@@ -57,9 +59,6 @@ namespace Infolog.DataAccess.Migrations
                         .ValueGeneratedOnAdd()
                         .HasColumnType("int");
 
-                    b.Property<string>("Bairro")
-                        .HasColumnType("longtext");
-
                     b.Property<string>("Cep")
                         .HasColumnType("longtext");
 
@@ -95,6 +94,9 @@ namespace Infolog.DataAccess.Migrations
                     b.Property<string>("Endereco")
                         .HasColumnType("longtext");
 
+                    b.Property<string>("Moto")
+                        .HasColumnType("longtext");
+
                     b.Property<string>("Nome")
                         .HasColumnType("longtext");
 
@@ -105,9 +107,6 @@ namespace Infolog.DataAccess.Migrations
                         .HasColumnType("longtext");
 
                     b.Property<string>("Telefone")
-                        .HasColumnType("longtext");
-
-                    b.Property<string>("Veiculo")
                         .HasColumnType("longtext");
 
                     b.HasKey("Id");

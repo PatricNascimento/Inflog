@@ -3,14 +3,16 @@ using System;
 using Infolog.DataAccess;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
+using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 
 namespace Infolog.DataAccess.Migrations
 {
     [DbContext(typeof(InfologDbContext))]
-    partial class InfologDbContextModelSnapshot : ModelSnapshot
+    [Migration("20210902032824_novosCamposEndereco")]
+    partial class novosCamposEndereco
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder
